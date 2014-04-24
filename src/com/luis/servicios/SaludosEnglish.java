@@ -62,6 +62,16 @@ public class SaludosEnglish implements ISaludos{
         
     }
 
+    @Override
+    public void inicio() {
+        System.out.println("Inicializo el bean");
+    }
+
+    @Override
+    public void eliminar() {
+        System.out.println("Destruyo el bean");
+    }
+
     
     
     

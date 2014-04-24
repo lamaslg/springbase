@@ -8,12 +8,15 @@
           http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.0.xsd
 ">
 
+    <context:property-placeholder
+        location="classpath:/propiedades.properties" />
+    
  <bean  name="personilla" class="com.luis.model.Persona"
  
  
  >
-     <property name="nombre" value="luis"/>
-     <property name="edad" value="22" />
+     <property name="nombre" value="${personilla.nombre}"/>
+     <property name="edad" value="${personilla.edad}" />
      
  </bean>       
     
@@ -26,13 +29,15 @@
 <bean id="es2" class="com.luis.servicios.SaludosSpanish">
     <property name="personilla">
         <bean class="com.luis.model.Persona">
-            <property name="nombre" value="Pepe" />
-            <property name="edad" value="33" />
+            <property name="nombre" value="${personilla1.nombre}" />
+            <property name="edad" value="${personilla1.edad}" />
         </bean>
     </property>
 </bean>
 
-<bean id="es3" class="com.luis.servicios.SaludosSpanish" init-method=""
+<bean id="es3" class="com.luis.servicios.SaludosSpanish" 
+      init-method="inicio"
+      destroy-method="eliminar"
 
 
 >
@@ -55,15 +60,15 @@
 <bean id="en3" class="com.luis.servicios.SaludosEnglish">
     <property name="names">
         <map>
-         <entry key="One" value="Lewis"  />
-         <entry key="Two" value="Lewis"  />
-         <entry key="Three" value="Lewis"  />
-         <entry key="Four" value="Lewis"  />
+         <entry key="One" value="${a}"  />
+         <entry key="Two" value="${personilla.nombre}"  />
+         <entry key="Three" value="${personilla1.nombre}"  />
+         <entry key="Four" value="${a}"  />
           <entry>
               <key>
                   <value>Five</value>
               </key>
-              <value>Manoli</value>
+              <value>${personilla.nombre}</value>
           </entry>    
         </map> 
     </property>

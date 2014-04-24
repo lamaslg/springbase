@@ -18,4 +18,8 @@ public interface ISaludos {
     
     public void saludaTodos();
     
+    public void inicio();
+    
+    public void eliminar();
+    
 }

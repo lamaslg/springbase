@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:c="http://www.springframework.org/schema/c"
+       xmlns:context="http://www.springframework.org/schema/context"
+
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+          http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.0.xsd
+">
+
+ <bean  name="personilla" class="com.luis.model.Persona"
+ 
+ 
+ >
+     <property name="nombre" value="luis"/>
+     <property name="edad" value="22" />
+     
+ </bean>       
+    
+    
+<bean id="es" class="com.luis.servicios.SaludosSpanish" >
+    <property name="personilla" ref="personilla" /> 
+   
+</bean>
+
+<bean id="es2" class="com.luis.servicios.SaludosSpanish">
+    <property name="personilla">
+        <bean class="com.luis.model.Persona">
+            <property name="nombre" value="Pepe" />
+            <property name="edad" value="33" />
+        </bean>
+    </property>
+</bean>
+
+<bean id="es3" class="com.luis.servicios.SaludosSpanish" init-method=""
+
+
+>
+    <property name="nombres">
+        <list>
+            <value>Luis</value>
+            <value>Juan</value>
+            <value>Eva</value>
+            <value>Maria</value>
+            <value>Paco</value>
+            <value>Antonia</value>
+         </list>
+    </property>
+ </bean>
+
+<bean id="en" class="com.luis.servicios.SaludosEnglish">
+    <constructor-arg  value="John" />
+    
+</bean>
+<bean id="en3" class="com.luis.servicios.SaludosEnglish">
+    <property name="names">
+        <map>
+         <entry key="One" value="Lewis"  />
+         <entry key="Two" value="Lewis"  />
+         <entry key="Three" value="Lewis"  />
+         <entry key="Four" value="Lewis"  />
+          <entry>
+              <key>
+                  <value>Five</value>
+              </key>
+              <value>Manoli</value>
+          </entry>    
+        </map> 
+    </property>
+ </bean>
+ 
+       
+    
+</beans>
